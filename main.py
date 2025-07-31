@@ -37,6 +37,10 @@ class QueryInput(BaseModel):
 
 vectorstore= save_chunk(url)
 
+@app.get('/')
+async def read_root():
+    return {"message": "Welcome to the SuBot"}
+
 
 @app.post("/ask")
 @limiter.limit("2/minute") 
